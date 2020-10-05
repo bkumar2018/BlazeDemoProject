@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class PurchasePageObject {
 
-	@FindBy(id="inputName")
+	@FindBy(css="#inputName")
 	public WebElement name;
 	
 	@FindBy(id="address")

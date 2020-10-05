@@ -17,15 +17,9 @@ public class TC_002 extends BaseClass{
 	public void EnterFlightDetailsAndClickBtn(){		
 		homePage.enterFlightDetails("Paris", "Rome");
 		homePage.clickOnFindFlights();
-	}
 	
-	@Test
-	public void verifyBookTablePopulated(){		
 		Assert.assertTrue(reservePage.verifyBookTablePresent(),"Book flight table not populated");
-	}
 	
-	@Test
-	public void verifyChooseOThisFlight(){
 		reservePage.clickOnChooseThisFlight();
 	}
 
