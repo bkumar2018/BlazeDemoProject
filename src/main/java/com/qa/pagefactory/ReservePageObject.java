@@ -19,6 +19,12 @@ public class ReservePageObject {
 	@FindBy(xpath="//table[@class='table']/tbody/tr[3]/td[1]/input")
 	public WebElement chooseFlight;
 	
+	@FindBy(xpath="//table[@class='table']/tbody/tr/td[3]")
+	public List<WebElement> airline;
+	
+	@FindBy(xpath="//table[@class='table']/tbody/tr/td[1]")
+	public List<WebElement> dynamicChooseThisFlight;
+	
 	public ReservePageObject(WebDriver driver){
 		PageFactory.initElements(driver, this);
 	}
