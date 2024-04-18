@@ -11,7 +11,6 @@ import com.qa.scripts.ReservePage;
 import com.qa.utils.WaitExecuter;
 
 public class TC_003 extends BaseClass{
-	
 
 	
 	@Test

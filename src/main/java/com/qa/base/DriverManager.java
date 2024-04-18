@@ -22,7 +22,13 @@ public class DriverManager {
 	public WebDriver InitilizeDriver(String browser){
 		
 		if(browser.equalsIgnoreCase("chrome")){
-			driver = new ChromeDriver(getChromeOptions());			
+			driver = new ChromeDriver(getChromeOptions());
+			driver.manage().window().maximize();
+
+			//driver.manage().timeouts().implicitlyWait(BrowserUtils.IMPLICT_WAIT, TimeUnit.SECONDS);
+			//driver.get(ConfigReader.readBaseConfig().getProperty(ConfigConstants.ApplicationConstants.URL));
+			//driver.get(url);
+
 		}else if(browser.equalsIgnoreCase("firfox")) {
 			//TBD
 		}else{
@@ -35,7 +41,7 @@ public class DriverManager {
 	private ChromeOptions getChromeOptions(){
 	    LoggingPreferences logPrefs = new LoggingPreferences();
 	    logPrefs.enable(LogType.PERFORMANCE, Level.ALL);
-		WebDriverManager.chromedriver().setup();
+		WebDriverManager.chromedriver().clearDriverCache().setup();
 		
 		ChromeOptions options = new ChromeOptions();
 	    options.setCapability("goog:loggingPrefs", logPrefs);
