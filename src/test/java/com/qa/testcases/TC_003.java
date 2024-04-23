@@ -1,5 +1,6 @@
 package com.qa.testcases;
 
+import com.qa.dataprovider.FlightDataProvider;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -12,18 +13,21 @@ import com.qa.utils.WaitExecuter;
 
 public class TC_003 extends BaseClass{
 
-	
-	@Test
-	public void EnterFlightDetailsAndClickBtn(){
+	private String homePageUrl = null;
+
+	@Test(dataProvider = "flightDetails", dataProviderClass = FlightDataProvider.class )
+	public void EnterFlightDetailsAndClickBtn(String deptCity, String destCity){
 				
 		HomePage homePage = new HomePage(driver);
 		ReservePage reservePage = new ReservePage(driver);
 		PurchasePage purchasePage = new PurchasePage(driver);
 		WaitExecuter waitExecuter = new WaitExecuter(driver);
 		ConfirmationPage confirm = new ConfirmationPage(driver);
-		
-		
-		homePage.enterFlightDetails("Paris", "Rome");
+
+		homePageUrl = homePage.getHomePageUrl();
+
+		//homePage.enterFlightDetails("Paris", "Rome");
+		homePage.enterFlightDetails(deptCity, destCity);
 		homePage.clickOnFindFlights();
 		waitExecuter.sleep(2000);
 		Assert.assertTrue(reservePage.verifyBookTablePresent(),"Book flight table not populated");
@@ -41,7 +45,7 @@ public class TC_003 extends BaseClass{
 		String bookId =  confirm.getConfirmationId();
 		System.out.println("Confirmation Booking Id: "+ bookId);
 		
-		
+		homePage.gotoHomePage(homePageUrl);
 		
 	}
 

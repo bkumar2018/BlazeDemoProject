@@ -20,6 +20,7 @@ public class HomePage {
 	
 	public String getHomePageUrl(){
 		return driver.getCurrentUrl();
+
 	}
 	
 	
@@ -43,5 +44,9 @@ public class HomePage {
 	public void clickOnFindFlights(){
 		waitExecuter.waitUntilElementPresent(homePageObject.flightBtn);
 		homePageObject.flightBtn.click();
+	}
+
+	public void gotoHomePage(String homePageUrl){
+		driver.get(homePageUrl);
 	}
 }
