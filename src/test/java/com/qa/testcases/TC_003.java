@@ -16,7 +16,7 @@ public class TC_003 extends BaseClass{
 	private String homePageUrl = null;
 
 	@Test(dataProvider = "flightDetails", dataProviderClass = FlightDataProvider.class )
-	public void EnterFlightDetailsAndClickBtn(String deptCity, String destCity){
+	public void EnterFlightDetailsAndClickBtn(String srcCity, String destCity){
 				
 		HomePage homePage = new HomePage(driver);
 		ReservePage reservePage = new ReservePage(driver);
@@ -27,7 +27,7 @@ public class TC_003 extends BaseClass{
 		homePageUrl = homePage.getHomePageUrl();
 
 		//homePage.enterFlightDetails("Paris", "Rome");
-		homePage.enterFlightDetails(deptCity, destCity);
+		homePage.enterFlightDetails(srcCity, destCity);
 		homePage.clickOnFindFlights();
 		waitExecuter.sleep(2000);
 		Assert.assertTrue(reservePage.verifyBookTablePresent(),"Book flight table not populated");
