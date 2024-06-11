@@ -1,6 +1,6 @@
 .classpath
 .project
-.class
+*.class
 target/
 test-output/
 .idea/
