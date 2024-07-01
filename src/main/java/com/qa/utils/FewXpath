@@ -1,0 +1,7 @@
+Thread.sleep(2000);
+
+		driver.findElement(By.xpath("//a[contains(@href,'linkedin')]")).click();
+		driver.findElement(By.xpath("//a[contains(@href,'facebook')]")).click();
+		driver.findElement(By.xpath("//a[contains(@href,'twitter')]")).click();
+		driver.findElement(By.xpath("//a[contains(@href,'youtube')]")).click();
+
